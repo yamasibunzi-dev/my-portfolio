@@ -1,0 +1,439 @@
+<html>
+<head>
+    <title>Oyama Sibunzi's Portfolio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			<style>
+			.body {
+				font-family: 'Trebuchet MS', sans-serif;
+				margin: 0;
+				background-color: #f8f8f8;
+				padding-top: 50px;
+				min-height: 100vh;
+				overflow-x: hidden;
+			}
+
+			h1 {
+				color: #333;
+				padding: 20px;
+				font-size: 2.5rem;
+			}
+
+			.footer-fade {
+				width: 100%;
+				height: 250px;
+				margin-top: -250px;
+				background: linear-gradient(to top, #90BE90, transparent);
+				pointer-events: none;
+			}
+			
+			.footer-fade2 {
+				transform: translateY(-371px);
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 250px;
+				background: linear-gradient(to bottom, #90EE90, transparent);
+				z-index: -1;
+				pointer-events: none;
+			}
+
+			p {
+				padding: 0 0px 10px 0px;
+				line-height: 1.8;
+				color: #555;
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			.top-line {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 50px;
+				background-color: #90EE90;
+				z-index: 9999;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				padding: 0 20px;
+			}
+
+			.nav-list {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				gap: 25px;
+			}
+
+			.nav-link {
+				text-decoration: none;
+				color: #333;
+				font-weight: 600;
+				font-size: 1rem;
+				padding: 10px 15px;
+				transition: color 0.3s, background-color 0.3s;
+				border-radius: 5px;
+			}
+
+			.nav-link:hover {
+				color: white;
+				background-color: #5cb85c;
+			}
+
+            .header-content {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .profile-picture {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 5px solid #90EE90; 
+            }
+
+            .profile-picture img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; 
+                object-position: center top; 
+            }
+			
+			html {
+				scroll-padding-top: 60px;
+			}
+
+			.tech-section {
+				padding: 30px 20px;
+				text-align: center;
+			}
+
+			.tech-section h2 {
+				font-size: 1.8rem;
+				margin-bottom: 20px;
+				color: #333;
+			}
+
+			.tech-buttons {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 15px;
+			}
+
+			.tech-item {
+				background-color: #90EE90;
+				color: #333;
+				padding: 10px 20px;
+				border-radius: 25px;
+				font-weight: bold;
+				font-size: 1rem;
+				box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+				transition: background-color 0.3s;
+			}
+
+			.tech-item:hover {
+				background-color: orange;
+				color: black;
+				cursor: default;
+			}
+
+			.contact-form {
+				max-width: 600px;
+				margin: 40px auto;
+				padding: 20px;
+				background-color: #fff;
+				border-radius: 10px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+			}
+
+			.contact-form h2 {
+				text-align: center;
+				margin-bottom: 20px;
+				color: #333;
+			}
+
+			.contact-form form {
+				display: flex;
+				flex-direction: column;
+				gap: 15px;
+			}
+
+			.contact-form label {
+				font-weight: bold;
+				color: #555;
+			}
+
+			.contact-form input,
+			.contact-form textarea {
+				padding: 10px;
+				border: 1px solid #ccc;
+				border-radius: 6px;
+				font-size: 1rem;
+				resize: vertical;
+			}
+
+			.contact-form textarea {
+				min-height: 120px;
+			}
+
+			.contact-form button {
+				background-color: #5cb85c;
+				color: white;
+				border: none;
+				padding: 12px;
+				font-size: 1rem;
+				border-radius: 6px;
+				cursor: pointer;
+				transition: background-color 0.3s;
+			}
+
+			.contact-form button:hover {
+				background-color: orange;
+				color: black;
+			}
+
+
+			.cv-button {
+
+				display: inline-block;
+				padding: 10px 20px;
+				background-color: #90EE90;
+				color: #333;
+				text-decoration: none;
+				font-weight: bold;
+				border-radius: 6px;
+				transition: background-color 0.3s;
+			}
+
+			.cv-button:hover {
+				background-color: orange;
+				color: black;
+			}
+
+			.info-toggle summary {
+				display: inline-block;
+				padding: 10px 20px;
+				background-color: #90EE90;
+				color: #333;
+				font-weight: bold;
+				border-radius: 6px;
+				cursor: pointer;
+				list-style: none;
+				transition: background-color 0.3s;
+			}
+
+			.info-toggle summary:hover {
+				background-color: orange;
+				color: black;
+			}
+
+			.info-toggle p {
+				padding: 10px 20px;
+				margin-top: 10px;
+				background-color: #f9f9f9;
+				border-left: 4px solid #90EE90;
+				border-radius: 4px;
+			}
+
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				margin-top: 20px;
+			}
+
+			th, td {
+				border: 1px solid #ccc;
+				padding: 12px;
+				text-align: left;
+			}
+
+			th {
+				background-color: #90EE90;
+				color: #333;
+			}
+
+			tr:nth-child(even) {
+				background-color: #f9f9f9;
+			}
+
+		</style>
+</head>
+<body>
+	
+    <nav class="top-line">
+        <ul class="nav-list">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+	<div class="footer-fade2"></div>
+	<br/>
+    <div style="max-width: 1000px; margin: 4 auto;">
+		<div class="header-content">
+			<div class="profile-picture">
+                <img src="pic.jpg" alt="Profile Picture">
+            </div>
+				<h1 id="home" style="margin-top: 0;padding: 0;">Oyama Sibunzi</h1>
+			</div>
+			
+		<h2 id="home" style="padding: 20px; font-size: 1.5rem; color: #333;">Welcome to my Green thread</h2>
+		<p>I am goal-driven, multidisciplinary SoftwareDeveloper student at CPUT, Cape town, South Africa. I believe in the power of a diverse skill set to solve modern problems as I work had in hand with my clients assuring projects that exceeds expactations. Frequently learning, building, and designing our future, one project at a time.</p>
+		<section class="tech-section">
+			<h3>Primary Expertise</h3>
+				<div class="tech-buttons">
+					<span class="tech-item">Foundation in Java</span>
+					<span class="tech-item">Foundation in Python</span>
+					<span class="tech-item">HTML & CSS</span>
+					<span class="tech-item">Object-Oriented Programming</span>
+					<span class="tech-item">Git & GitHub</span>
+					<span class="tech-item">UI/UX Design</span>
+					<span class="tech-item">SQL/Database Management</span>
+					<span class="tech-item">Data Structures & Algorithms</span>
+				</div>
+		</section>
+		
+		<section class="tech-section">
+		<h3>Skills to be mastered</h3>
+				<div class="tech-buttons">
+					<span class="tech-item">AI& Machine Learnig</span>
+					<span class="tech-item">Game Development</span>
+					<span class="tech-item">DevOps Basics</span>
+					<span class="tech-item">Team Collaboration</span>
+					<span class="tech-item">Cloud Service</span>
+					<span class="tech-item">Security Awareness</span>
+					<span class="tech-item">API Intergration</span>
+					<span class="tech-item">Advanced OOP</span>
+				</div>
+		</section>
+
+		
+        <h2 id="about" style="padding: 20px; font-size: 1.5rem; color: #333;">About Me</h2>
+        <p>While my formal education at CPUT provides the essential theory and structure, I actively complement it with practical, hands-on projects. Whether it's a design task that requires analytical thinking, or a technical problem that needs a creative solution, I am adept at bridging gaps. For me, being multidisciplinary isn't just about having multiple skills, it's about weaving them together to create a stronger, more versatile whole. This approach allows me to see the bigger picture and anticipate challenges that a more specialized view might miss</p>
+        <p>Ultimately, I am building my career on the principle that goals are the engine of progress. Every project I undertake is guided by a clear objective, whether it's mastering a new software, improving user experience, or effectively communicating a brand's message. This portfolio is a curated collection of that journey. It represents not just what I have done, but the purposeful path I am forging and the value I am eager to bring to a forward-thinking team</p>
+
+	
+		<div style="text-align: center;">
+		<a href="Oyama Sibunzi CV.pdf" target="_blank" class="cv-button">View My CV</a>
+		</div>
+
+		<section class="tech-section">
+		<h3>My tools</h3>
+				<div class="tech-buttons">
+					<span class="tech-item">Git & GitHub</span>
+					<span class="tech-item">Thonny (Python)</span>
+					<span class="tech-item">Apache NetBeans IDE 17 (Java)</span>
+					<span class="tech-item">Canva</span>
+					<span class="tech-item">JDK</span>
+					<span class="tech-item">HTML & CSS</span>
+					<span class="tech-item">Chrome Developer Tools</span>
+					<span class="tech-item">MySQL</span>
+					<span class="tech-item">Microsoft Teams/ Workspace</span>
+					<span class="tech-item">PDF Readers</span>
+				</div>
+		</section>
+		
+        <h2 id="projects" style="padding: 20px; font-size: 1.5rem; color: #333;">My Projects</h2>
+        <p>These are my recently complete projects:</p>
+
+<table>
+  <tr>
+    <th>Projects</th>
+    <th>Information</th>
+  </tr>
+  <tr>
+    <td>1. Calculator</td>
+    <td>		  
+		<details class="info-toggle">
+			<summary>View</summary>
+				<p>
+				I developed a custom desktop calculator using Java in Apache NetBeans IDE 17 as part of my personal portfolio to demonstrate my growing skills in object-oriented programming and GUI design. The calculator performs basic arithmetic operations—addition, subtraction, multiplication, and division—through a clean interface built with Java Swing, and includes error handling for invalid inputs. This project helped me strengthen my understanding of Java logic, event-driven programming, and user interface layout, while showcasing my ability to turn theory from CPUT into practical, user-friendly software that reflects my goal-driven and multidisciplinary approach.
+				</p>
+		</details>
+	</td>
+  </tr>
+  <tr>
+    <td>2. Snakes and Ladders</td>
+    <td><details class="info-toggle">
+			<summary>View</summary>
+				<p>
+				I created a digital version of Snakes and Ladders using Java in Apache NetBeans IDE 17 to explore object-oriented programming and interactive game design. This project features a graphical board, dice roll simulation, player movement logic, and dynamic interactions with snakes and ladders, all built using Java Swing. It helped me strengthen my understanding of arrays, conditionals, and event handling while applying creative problem-solving to build a fun, functional game. The project reflects my multidisciplinary approach at CPUT, blending logic, design, and user experience into a playful learning tool that showcases my growth as a developer.
+				</p>
+		</details></td>
+  </tr>
+  <tr>
+    <td>3. Guess random scrambled letters</td>
+    <td><details class="info-toggle">
+			<summary>View</summary>
+				<p>
+				I developed a word-guessing game in Java using Apache NetBeans IDE 17, where players must identify the correct word from randomly scrambled letters. This project combines logic, randomness, and user interaction through a Swing-based interface, allowing users to input guesses and receive instant feedback. It helped me strengthen my understanding of string manipulation, arrays, and conditional logic while building a fun and educational tool. The game reflects my creative and goal-driven approach at CPUT, blending technical skills with playful design to challenge users and showcase my growing expertise in Java development.
+				</p>
+		</details></td>
+  </tr>
+  <tr>
+    <td>4. Work Schedualer</td>
+    <td><details class="info-toggle">
+			<summary>View</summary>
+				<p>
+				I built a personalized Work Scheduler using Java in Apache NetBeans IDE 17 to help users organize tasks, deadlines, and daily routines efficiently. The application features a clean Swing-based interface where users can input, update, and view scheduled activities, with built-in validation and time tracking logic. This project allowed me to apply object-oriented principles, array handling, and user input management while designing a practical tool that reflects my goal-driven mindset at CPUT. It showcases my ability to turn real-world needs into functional software, blending technical structure with user-focused design.
+				</p>
+		</details></td>
+  </tr>
+  <tr>
+    <td>5. Space ship shooting games</td>
+    <td><details class="info-toggle">
+			<summary>View</summary>
+				<p>
+				I designed a Space Ship Shooting Game using Java in Apache NetBeans IDE 17 to explore interactive gameplay mechanics and graphical programming. The game features a player-controlled spaceship that fires projectiles at moving targets, with collision detection, score tracking, and responsive controls built using Java Swing. This project deepened my understanding of object-oriented design, animation loops, and event handling, while allowing me to creatively apply logic and visual effects. It reflects my multidisciplinary mindset at CPUT, blending technical precision with imaginative design to deliver a fast-paced, engaging experience that showcases my growth as a developer.
+				</p>
+		</details></td>
+  </tr>
+</table>
+
+        <h2 id="contact" style="padding: 20px; font-size: 1.5rem; color: #333;">Get In Touch</h2>
+        <p><b>WhatsApp:</b> <a href="tel:+27661957429">+27 661957429</a></p>
+		<p><b>Email:</b> <a href="mailto:yamasibunzi@gmail.com">yamasibunzi@gmail.com</a></p>
+	</div>
+		<p align=center >Or send a message here and I will get back to you</p>
+		
+		<section id="contact" class="contact-form">
+			<h2>Get In Touch</h2>
+				<form>
+					<label for="name">Full Name</label>
+						<input type="text" id="name" name="name" placeholder="Your name" required>
+
+					<label for="email">Email Address</label>
+						<input type="email" id="email" name="email" placeholder="your@email.com" required>
+
+					<label for="subject">Subject</label>
+						<input type="text" id="subject" name="subject" placeholder="Project inquiry or message subject" required>
+
+					<label for="message">Message</label>
+						<textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
+					<button type="submit">Send Message</button>
+				</form>
+		</section>
+
+
+    <div style="height: 100px;"></div>
+	
+	<footer style="text-align: center; padding: 20px; color: black;">
+		© 2025 Oyama Sibunzi. Rights protected under applicable law.
+	</footer>
+	<div class="footer-fade"></div>
+	
+</body>
+</html>
